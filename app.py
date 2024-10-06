@@ -7,7 +7,7 @@ import unicodedata
 import os
 
 # Set OpenAI API key
-openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # Helper functions for numerology calculations
 def reduce_number(num):
