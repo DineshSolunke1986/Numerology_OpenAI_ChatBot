@@ -45,27 +45,27 @@ def calculate_personality_number(full_name):
 # Functions to generate AI responses using OpenAI
 def get_career_advice(life_path_number):
     prompt = f"Based on numerology, the Life Path Number is {life_path_number}. Provide detailed career advice for this person. Keep description precise, points and small"
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "system", "content": prompt}]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message["content"]
 
 def get_relationship_advice(soul_urge_number):
     prompt = f"Based on numerology, the Soul Urge Number is {soul_urge_number}. Provide relationship advice for this person.Keep description precise, points and small"
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "system", "content": prompt}]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message["content"]
 
 def get_action_steps(expression_number):
     prompt = f"Based on numerology, the Expression Number is {expression_number}. Provide actionable steps for achieving life goals. Keep description precise, points and small"
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "system", "content": prompt}]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message["content"]
 
 # Visualize numerology numbers
 def plot_numerology_numbers(life_path, expression, soul_urge, personality):
